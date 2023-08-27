@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
   //baseUrl:string ="http://localhost:8080/product";
-  baseUrl:string ="http://54.80.38.122:8181/product";
+  baseUrl:string ="http://107.23.131.183:8181/product";
   constructor(public http:HttpClient) { }
 
   findAllProdut():Observable<Product[]> {
