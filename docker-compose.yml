@@ -13,7 +13,7 @@ services:
     depends_on:
       - mysql-container
     ports:
-      - 8181:9090
+      - 9090:9090
     restart: always
   angular-container:
     build: ./frontend/angular-product-app/
