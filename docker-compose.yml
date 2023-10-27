@@ -40,4 +40,4 @@ networks:
   private:
     name: my-private-networks
 volumes:
-  db:
+  db:local 
