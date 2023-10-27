@@ -38,3 +38,5 @@ networks:
     name: my-public-networks
   private:
     name: my-private-networks
+  db:
+   driver: local   
