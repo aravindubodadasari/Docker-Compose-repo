@@ -38,6 +38,5 @@ networks:
     name: my-public-networks
   private:
     name: my-private-networks
-volumes:
-  db:
-   driver: local    
+volume:
+	  
