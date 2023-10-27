@@ -41,5 +41,3 @@ networks:
     name: my-private-networks
 volumes:
   db:
-   
-	  
