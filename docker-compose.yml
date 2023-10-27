@@ -39,6 +39,3 @@ networks:
     driver: bridge
   private:
     name: my-private-networks
-volumes:
-  db:
-   driver: local    
