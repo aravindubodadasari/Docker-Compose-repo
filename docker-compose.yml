@@ -2,6 +2,7 @@ version: '3.8'
 services:
   mysql-container:
     image: mysql:8
+    container_name: mysql-container
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: mydb
@@ -38,5 +39,7 @@ networks:
     name: my-public-networks
   private:
     name: my-private-networks
-volume:
+volumes:
+  db:
+   driver: local    
 	  
