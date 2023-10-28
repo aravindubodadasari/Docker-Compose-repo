@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
   //baseUrl:string ="http://localhost:9090/product";
-  baseUrl:string ="http://52.205.117.107:9090/product";
+  baseUrl:string ="http://54.85.90.192:9090/product";
   //baseUrl:string ="http://springboot-container/product";
   constructor(public http:HttpClient) { }
 
