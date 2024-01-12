@@ -1,14 +1,14 @@
-<div>
+<div class="container">
     <h2>Add Product</h2>
-    <form [formGroup]="productRef" (ngSubmit)="storeProduct()">
+    <form [formGroup]="productRef" (ngSubmit)="storeProduct()" class="form-group">
         <label>PName</label>
-        <input type="text" formControlName="pname"/><br/>
+        <input type="text" formControlName="pname" class="form-control"/><br/>
         <label>Price</label>
-        <input type="number" formControlName="price"/><br/>
-        <input type="submit" value="store product"/>
-        <input type="reset" value="reset"/>
+        <input type="number" formControlName="price" class="form-control"/><br/>
+        <input type="submit" value="store product" class="btn btn-success"/>
+        <input type="reset" value="reset" class="btn btn-info"/>
     </form>
-    <table border="1">
+    <table border="1" class="table">
         <tr>
             <th>PId</th>
             <th>PName</th>
