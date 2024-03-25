@@ -1,0 +1,62 @@
+version: '3.8'
+services:
+  mysql-container:
+    image: mysql:8
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: mydb
+    ports:
+      - 3307:3306
+    restart: always
+    networks:
+      - private
+    volumes:
+      - db:/var/lib/mysql
+  eureka-server:
+    build: ./backend/Eureka-Server/Eureka-Server/
+    ports:
+      - "8761:8761"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+  microservice1:
+    build: ./backend/backend-microservice-app/backend-microservice-app/
+    ports:
+      - "9090:9090"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+      - SPRING_APPLICATION_NAME=microservice1
+    depends_on:
+      - mysql-container
+      - eureka-server
+    restart: always
+    networks:
+      - public
+      - private
+  # springboot-container:
+  #   build: ./backend/spring-boot/spring-boot/
+  #   container_name: springboot-container 
+    
+  #   ports:
+  #     - 9090:9090
+  #   restart: always
+  #   networks:
+  #     - public
+  #     - private
+  angular-container:
+    build: ./frontend/frontend-app/
+    container_name: angular-container
+    ports:
+      - 81:80
+    networks:
+      - public
+    restart: always  
+networks:
+  public:
+    name: my-public-networks
+    driver: bridge
+  private:
+    name: my-private-networks
+volumes:
+  db:
+   driver: local    

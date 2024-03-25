@@ -1,0 +1,79 @@
+
+First create EC2 instance in AWS 
+
+then 
+install git 
+
+---------------
+Git install 
+
+sudo yum install git -y
+
+---------------------------
+
+Docker install 
+install docker 
+
+sudo yum install docker
+
+sudo service docker start
+
+sudo docker info
+
+sudo docker images 
+
+---------------------------------
+
+Docker - compose install 
+
+Download the current stable release of Docker Compose
+
+sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+Give the permission 
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose version
+
+Now we will create the docker service and group and usermode 
+
+
+sudo groupadd docker
+
+sudo usermod -a -G docker ec2-user
+
+--------------------------------------------------
+
+
+in EC2 instance clone the application change the IP Address of Ec2 instance 
+
+sudo docker-compose docker-compose.yml up --build -d 
+
+sudo docker ps
+
+sudo docker images 
+
+check the application running using 
+
+http://IPAddress:81
+
+
+then check database running 
+
+sudo docker exec -it mysql-container bash
+
+
+
+how to see details about the volume 
+
+docker volume ls
+
+docker volume inspect volumnname 
+
+sudo -i to move root user 
+
+
+sudo docker-compose down -v 		remove all volume data from external device. 
+
+
