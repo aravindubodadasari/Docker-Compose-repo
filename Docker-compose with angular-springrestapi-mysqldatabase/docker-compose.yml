@@ -36,10 +36,9 @@ services:
     restart: always  
 networks:
   public:
-    name: my-public-networks
-    driver: bridge
+    name: my-angular-spring-networks
   private:
-    name: my-private-networks
+    name: my-spring-db-networks
 volumes:
-  db:
-   driver: local    
+  db: 
+   driver: local
