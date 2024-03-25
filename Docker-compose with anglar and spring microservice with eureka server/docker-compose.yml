@@ -14,13 +14,13 @@ services:
     volumes:
       - db:/var/lib/mysql
   eureka-server:
-    build: ./backend/Eureka-Server/Eureka-Server/
+    build: ./backend/Eureka-Server/
     ports:
       - "8761:8761"
     environment:
       - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
   microservice1:
-    build: ./backend/backend-microservice-app/backend-microservice-app/
+    build: ./backend/backend-microservice-app/
     ports:
       - "9090:9090"
     environment:
